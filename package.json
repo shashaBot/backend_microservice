@@ -1,0 +1,13 @@
+{
+  "name": "HackerBay_backend",
+  "version": "1.0.0",
+  "description": "Node.js Microservice",
+  "author": "Shashwat Gulyani <shashwat.gulyani@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
