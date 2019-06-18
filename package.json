@@ -1,13 +1,32 @@
 {
-  "name": "HackerBay_backend",
+  "name": "Microservice_nodejs",
   "version": "1.0.0",
-  "description": "Node.js Microservice",
+  "description": "Dockerized Node.js microservices",
   "author": "Shashwat Gulyani <shashwat.gulyani@gmail.com>",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon",
+    "test": "",
+    "coverage": "",
+    "lint": "/node_modules/.bin/eslint .",
+    "fixlint": "/node_modules/.bin/eslint . --fix"
   },
   "dependencies": {
-    "express": "^4.16.1"
+    "body-parser": "^1.19.0",
+    "express": "^4.16.1",
+    "fast-json-patch": "^2.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "request": "^2.88.0",
+    "sharp": "^0.22.1",
+    "winston": "2.4.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "jsdoc": "^3.6.2"
   }
 }
