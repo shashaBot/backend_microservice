@@ -10,9 +10,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const winston = require('winston');
-const routes = require('./routes');
+const routes = require('./src/routes');
 
-const apiRoutes = require('./routes/api-routes');
+const apiRoutes = require('./src/routes/api-routes');
 
 // Constants
 const PORT = 8080;
@@ -39,7 +39,7 @@ winston.add(winston.transports.Console);
 
 // http listen on HOST and PORT
 app.listen(PORT, HOST);
-winston.info(`App listening on : ${HOST}:${PORT}`))
+winston.info(`App listening on : ${HOST}:${PORT}`)
 
 // exporting server app for testing
 module.exports = app

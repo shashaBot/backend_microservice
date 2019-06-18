@@ -7,10 +7,11 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon",
-    "test": "",
-    "coverage": "",
+    "test": "nyc --reporter=html --reporter=text mocha --recursive --exit",
     "lint": "/node_modules/.bin/eslint .",
-    "fixlint": "/node_modules/.bin/eslint . --fix"
+    "lint:fix": "/node_modules/.bin/eslint . --fix",
+    "docker:image": "docker build -t hackerbay_ms .",
+    "docker:container": "docker run -it -p 8080:8080 -d hackerbay_ms"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -27,6 +28,8 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.3",
-    "jsdoc": "^3.6.2"
+    "jsdoc": "^3.6.2",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1"
   }
 }

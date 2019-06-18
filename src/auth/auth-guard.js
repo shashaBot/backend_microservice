@@ -18,20 +18,20 @@ const jsonwebtoken = require('./jsonwebtoken');
  * @param {*} next Passes the request object to the next middleware
  */
 module.exports = (req, res, next) => {
-  if (!req.headers.authorization) res.end('Unauthorized');
+  if (!req.headers.authorization) res.status(401).end('Unauthorized');
   jsonwebtoken.decodeToken(req.headers.authorization, (err, payload) => {
     if (err) {
       switch (err.name) {
         case 'TokenExpiredError':
-          res.end('Unauthorized');
+          res.status(401).end('Unauthorized');
           break;
         case 'JsonWebTokenError':
           winston.error(err.message);
-          res.end('Internal server error');
+          res.status(500).end('Internal server error');
           break;
         default:
           winston.error(err.message);
-          res.end('Internal server error');
+          res.status(500).end('Internal server error');
       }
     } else {
       req.user = payload;
