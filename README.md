@@ -19,7 +19,7 @@ Dockerized Node.js microservice with JWT auth and protected routes for API.
 
 
 ## Documentation
-See [out](https://github.com/shashaBot/backend_microservice/tree/master/out) directory.
+See [docs](https://github.com/shashaBot/backend_microservice/tree/master/docs) directory.
 
 ## API Routes
 ### Public routes
@@ -76,4 +76,4 @@ Response: A binary response with `content-type: image/*` in headers.
 3. If the request object is malformed (missing fields, etc.), 400 (Bad request) response is returned.
 
 ## Test and coverage report
-Coverage folder
+See Coverage folder after running ```npm run test```.

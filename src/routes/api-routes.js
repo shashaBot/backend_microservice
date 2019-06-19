@@ -7,16 +7,13 @@
  * @version 1.0.0
  */
 
-/**
- * @module api routes
- */
-
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const patch = require('../patch/patch');
 const imgThumbnail = require('../img-thumbnail/img-thumbnail');
 const guard = require('../auth/auth-guard');
+
 const apiRoute = express.Router();
 
 apiRoute.patch('/apply-json-patch', guard, (req, res) => {

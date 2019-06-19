@@ -1,5 +1,5 @@
 const chaiHttp = require('chai-http');
-const chai = require ('chai');
+const chai = require('chai');
 const request = require('request');
 const server = require('../../server');
 
@@ -8,11 +8,11 @@ chai.use(chaiHttp);
 
 describe('Public API Routes', () => {
   describe('POST /login', () => {
-    it('should return a 200 response with token', done => {
-      let cred = {
+    it('should return a 200 response with token', (done) => {
+      const cred = {
         username: 'any',
         password: 'any',
-      }
+      };
       chai
         .request(server)
         .post('/login')
@@ -25,8 +25,8 @@ describe('Public API Routes', () => {
           done();
         });
     });
-    it('should return a 400 response for empty payload', done => {
-      let cred = {}
+    it('should return a 400 response for empty payload', (done) => {
+      const cred = {};
       chai
         .request(server)
         .post('/login')
@@ -40,10 +40,10 @@ describe('Public API Routes', () => {
           done();
         });
     });
-    it('should return a 400 response for missing password field', done => {
-      let cred = {
+    it('should return a 400 response for missing password field', (done) => {
+      const cred = {
         username: 'any',
-      }
+      };
       chai
         .request(server)
         .post('/login')
@@ -58,5 +58,4 @@ describe('Public API Routes', () => {
         });
     });
   });
-
 });

@@ -42,6 +42,77 @@
 
 
 
+    <section>
+        <article><h1>Microservice</h1>
+<p>Dockerized Node.js microservice with JWT auth and protected routes for API.</p>
+<h2>Installation</h2>
+<ol>
+<li><code>git clone https://github.com/shashaBot/backend_microservice</code></li>
+<li><code>npm run docker:image</code>. This will create an image called <code>hackerbay_ms</code>.</li>
+<li><code>npm run docker:container</code>. This will start a container using the image mapping the ports 8080:8080.</li>
+<li>Start using the API on <code>http://localhost:8080</code>.</li>
+</ol>
+<h2>Docker Hub Image</h2>
+<p><code>docker pull shashabot/hackerbay</code></p>
+<h2>Development and Testing</h2>
+<ol>
+<li><code>git clone https://github.com/shashaBot/backend_microservice</code></li>
+<li><code>npm install</code></li>
+<li><code>npm run test</code></li>
+<li><code>npm run start</code> (or <code>npm run dev</code> if you have nodemon installed) to start the server on port 8080 of your machine.</li>
+</ol>
+<h2>Documentation</h2>
+<p>See <a href="https://github.com/shashaBot/backend_microservice/tree/master/out">out</a> directory.</p>
+<h2>API Routes</h2>
+<h3>Public routes</h3>
+<p><code>POST /login</code></p>
+<p>Request Object:</p>
+<pre class="prettyprint source"><code>{
+  username: &quot;user&quot;,
+  password: &quot;pass&quot;
+}
+</code></pre>
+<p>Response Object:</p>
+<pre class="prettyprint source"><code>{
+  success: true,
+  token: &quot;....&quot;
+}
+</code></pre>
+<h3>Protected routes</h3>
+<p><code>PATCH /api/apply-json-patch</code></p>
+<p>Request Object:</p>
+<pre class="prettyprint source"><code>{
+  doc: {field: &quot;value&quot;},
+  patches: [{op: &quot;add&quot;, path: &quot;/anotherField&quot;, value: &quot;addValue&quot;}]
+}
+</code></pre>
+<p>Response Object:</p>
+<pre class="prettyprint source"><code>{
+  success: true,
+  patchedObj: {
+    field: &quot;value&quot;,
+    anotherField: &quot;addValue&quot;
+  }
+}
+</code></pre>
+<p><code>POST /api/create-thumbnail</code></p>
+<p>Request Object:</p>
+<pre class="prettyprint source"><code>{
+  imageUri: &quot;https://placehold.it/100x100.jpg&quot;,
+  filename: &quot;testimage&quot;
+}
+</code></pre>
+<p>Response: A binary response with <code>content-type: image/*</code> in headers.</p>
+<h3>Notes:</h3>
+<ol>
+<li>The protected routes must be accessed with an auth header containing token from login route response.</li>
+<li>If the auth header is not present wherever required, 401 (Unauthorized) status is returned.</li>
+<li>If the request object is malformed (missing fields, etc.), 400 (Bad request) response is returned.</li>
+</ol>
+<h2>Test and coverage report</h2>
+<p>See Coverage folder after running <code>npm run test</code>.</p></article>
+    </section>
+
 
 
 
@@ -105,11 +176,6 @@
 
     
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="server.js.html">server.js</a>, <a href="server.js.html#line1">line 1</a>
-    </li></ul></dd>
     
 
     
@@ -209,11 +275,6 @@
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_auth_auth-guard.js.html">src/auth/auth-guard.js</a>, <a href="src_auth_auth-guard.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
 
     
 
@@ -311,11 +372,6 @@
 
     
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_auth_jsonwebtoken.js.html">src/auth/jsonwebtoken.js</a>, <a href="src_auth_jsonwebtoken.js.html#line1">line 1</a>
-    </li></ul></dd>
     
 
     
@@ -467,11 +523,6 @@
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_config_config.js.html">src/config/config.js</a>, <a href="src_config_config.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
 
     
 
@@ -569,11 +620,6 @@
 
     
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_img-thumbnail_img-thumbnail.js.html">src/img-thumbnail/img-thumbnail.js</a>, <a href="src_img-thumbnail_img-thumbnail.js.html#line1">line 1</a>
-    </li></ul></dd>
     
 
     
@@ -673,11 +719,6 @@
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_patch_patch.js.html">src/patch/patch.js</a>, <a href="src_patch_patch.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
 
     
 
@@ -775,11 +816,6 @@
 
     
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_api-routes.js.html">src/routes/api-routes.js</a>, <a href="src_routes_api-routes.js.html#line1">line 1</a>
-    </li></ul></dd>
     
 
     
@@ -879,11 +915,6 @@
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_index.js.html">src/routes/index.js</a>, <a href="src_routes_index.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
 
     
 
@@ -926,13 +957,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api%2520routes.html">api routes</a></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-src_auth_authGuard.html">src/auth/authGuard</a></li><li><a href="module-src_auth_jsonwebtoken.html">src/auth/jsonwebtoken</a></li><li><a href="module-src_config_config.html">src/config/config</a></li><li><a href="module-src_imgThumbnail_imgThumbnail.html">src/imgThumbnail/imgThumbnail</a></li><li><a href="module-src_patch_patch.html">src/patch/patch</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.2</a> on Wed Jun 19 2019 09:26:54 GMT+0530 (India Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.2</a> on Tue Jun 25 2019 13:35:11 GMT+0530 (India Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

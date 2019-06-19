@@ -6,6 +6,10 @@
  * @version 1.0.0
  */
 
+ /**
+  * @module src/auth/jsonwebtoken
+  */
+
 const jwt = require('jsonwebtoken');
 
 const winston = require('winston');
@@ -33,7 +37,7 @@ module.exports = {
      * @param {string} token The signed token.
      * @param {function(err, payload)} callback Resolves an Error or a payload
      *
-     * @returns {Object} The payload which should be Alabi since we used {username: Alabi}.
+     * @returns {Object} The payload object
      */
   decodeToken: (token, callback) => jwt.verify(token, config.jsonwebtoken.secretOrPublicKey, (err, payload) => {
     if (err) {
@@ -41,7 +45,10 @@ module.exports = {
       return winston.error(`Decoding jwt error: ${err}`);
     }
 
-    if (!payload) return winston.error('Could not find username or password on payload');
+    if (!payload || !payload.username) {
+      winston.error('Could not find username on payload');
+      return callback(new Error('INVALID PAYLOAD'));
+    }
     return callback(null, payload);
   }),
 };

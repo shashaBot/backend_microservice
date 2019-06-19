@@ -7,6 +7,9 @@
  * @property {Object} jsonwebtoken Object containing all keys and configurations needed by jwt.
  */
 
+/**
+ * @module src/config/config
+ */ 
 
 module.exports = {
   /**

@@ -6,6 +6,9 @@
  * @version 1.0.0
  */
 
+ /**
+  * @module src/auth/authGuard
+  */
 
 const winston = require('winston');
 const jsonwebtoken = require('./jsonwebtoken');

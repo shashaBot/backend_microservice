@@ -6,6 +6,9 @@
  * @version 1.0.0
  */
 
+/**
+ * @module src/imgThumbnail/imgThumbnail 
+ */
 
 const request = require('request');
 const fs = require('fs');

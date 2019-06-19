@@ -39,7 +39,7 @@ winston.add(winston.transports.Console);
 
 // http listen on HOST and PORT
 app.listen(PORT, HOST);
-winston.info(`App listening on : ${HOST}:${PORT}`)
+winston.info(`App listening on : ${HOST}:${PORT}`);
 
 // exporting server app for testing
-module.exports = app
+module.exports = app;

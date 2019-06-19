@@ -37,3 +37,18 @@ describe(`Generate and decode a token`, function() {
         });
     });
 });
+
+describe(`Generate token with invalid payload`, () => {
+    let result;
+    beforeEach((done) => {
+        result = jwt.getToken({user: 'testing'})
+        done();
+    })
+    it('should give error for empty payload', (done) => {
+        jwt.decodeToken(result, (err, payload) => {
+            assert.exists(err);
+            // assert.hasAnyKeys('err', 'message')
+            done();
+        })
+    })
+})

@@ -6,6 +6,11 @@
  * @version 1.0.0
  */
 
+
+/**
+ * @module src/patch/patch
+ */
+
 const jsonPatch = require('fast-json-patch');
 const winston = require('winston');
 
