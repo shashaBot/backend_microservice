@@ -2,13 +2,24 @@
 Dockerized Node.js microservice with JWT auth and protected routes for API.
 
 ## Installation
-installation steps
+1. `git clone https://github.com/shashaBot/backend_microservice`
+2. `npm run docker:image`. This will create an image called `hackerbay_ms`.
+3. `npm run docker:container`. This will start a container using the image mapping the ports 8080:8080.
+4. Start using the API on `http://localhost:8080`.
+
 
 ## Docker Hub Image
-link here
+```docker pull shashabot/hackerbay```
+
+## Development and Testing
+1. `git clone https://github.com/shashaBot/backend_microservice`
+2. `npm install`
+3. `npm run test`
+4. `npm run start` (or `npm run dev` if you have nodemon installed) to start the server on port 8080 of your machine.
+
 
 ## Documentation
-Docs directory
+See [out](https://github.com/shashaBot/backend_microservice/tree/master/out) directory.
 
 ## API Routes
 ### Public routes
